@@ -1,0 +1,636 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Neches Cluster Connection Guide - HPEDSI | University of Houston</title>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Open+Sans:wght@300;400;600;700&display=swap');
+        
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            font-family: 'Open Sans', sans-serif;
+            line-height: 1.6;
+            color: #333;
+            background: #ffffff;
+        }
+        
+        /* Header Styles */
+        .header {
+            background: linear-gradient(135deg, #C8102E 0%, #960C22 100%);
+            color: white;
+            padding: 30px 0;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+        }
+        
+        .header-content {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+        }
+        
+        .logo-section {
+            display: flex;
+            align-items: center;
+            gap: 20px;
+        }
+        
+        .uh-logo {
+            width: 60px;
+            height: 60px;
+            background: white;
+            border-radius: 5px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-weight: bold;
+            color: #C8102E;
+            font-size: 24px;
+        }
+        
+        .header h1 {
+            font-size: 28px;
+            font-weight: 600;
+            margin-bottom: 5px;
+        }
+        
+        .subtitle {
+            font-size: 14px;
+            opacity: 0.9;
+        }
+        
+        /* Container */
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 40px 20px;
+        }
+        
+        /* Introduction Card */
+        .intro-card {
+            background: linear-gradient(135deg, #f5f7fa 0%, #c3cfe2 100%);
+            border-radius: 10px;
+            padding: 30px;
+            margin-bottom: 40px;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.08);
+        }
+        
+        .intro-card h2 {
+            color: #C8102E;
+            margin-bottom: 15px;
+            font-size: 24px;
+        }
+        
+        .intro-card p {
+            color: #555;
+            line-height: 1.8;
+        }
+        
+        /* Prerequisites */
+        .prerequisites {
+            background: #FFF8E1;
+            border-left: 4px solid #FFA726;
+            padding: 20px;
+            margin-bottom: 40px;
+            border-radius: 5px;
+        }
+        
+        .prerequisites h3 {
+            color: #F57C00;
+            margin-bottom: 10px;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+        
+        .prerequisites ul {
+            list-style: none;
+            padding-left: 30px;
+        }
+        
+        .prerequisites li:before {
+            content: "✓";
+            color: #F57C00;
+            font-weight: bold;
+            margin-right: 10px;
+        }
+        
+        /* Step Cards */
+        .step-card {
+            background: white;
+            border-radius: 10px;
+            box-shadow: 0 3px 10px rgba(0,0,0,0.1);
+            margin-bottom: 30px;
+            overflow: hidden;
+            page-break-inside: avoid;
+            border: 1px solid #e0e0e0;
+        }
+        
+        .step-header {
+            background: linear-gradient(90deg, #C8102E 0%, #960C22 100%);
+            color: white;
+            padding: 20px 30px;
+            display: flex;
+            align-items: center;
+            gap: 15px;
+        }
+        
+        .step-number {
+            background: white;
+            color: #C8102E;
+            width: 40px;
+            height: 40px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-weight: bold;
+            font-size: 18px;
+        }
+        
+        .step-title {
+            font-size: 20px;
+            font-weight: 600;
+        }
+        
+        .step-content {
+            padding: 30px;
+        }
+        
+        .step-content p {
+            margin-bottom: 15px;
+            color: #555;
+            line-height: 1.8;
+        }
+        
+        .step-content ul {
+            margin: 15px 0;
+            padding-left: 30px;
+        }
+        
+        .step-content li {
+            margin-bottom: 10px;
+            color: #555;
+        }
+        
+        /* Image Container */
+        .image-container {
+            margin: 20px 0;
+            text-align: center;
+            background: #f9f9f9;
+            padding: 20px;
+            border-radius: 8px;
+            border: 1px solid #e0e0e0;
+        }
+        
+        .image-container img {
+            max-width: 100%;
+            height: auto;
+            border-radius: 5px;
+            box-shadow: 0 3px 10px rgba(0,0,0,0.1);
+        }
+        
+        .image-caption {
+            margin-top: 10px;
+            font-size: 14px;
+            color: #666;
+            font-style: italic;
+        }
+        
+        /* Code blocks */
+        .code-block {
+            background: #2d2d2d;
+            color: #f8f8f2;
+            padding: 15px 20px;
+            border-radius: 5px;
+            margin: 15px 0;
+            font-family: 'Consolas', 'Monaco', monospace;
+            overflow-x: auto;
+        }
+        
+        .inline-code {
+            background: #f4f4f4;
+            color: #C8102E;
+            padding: 2px 6px;
+            border-radius: 3px;
+            font-family: 'Consolas', 'Monaco', monospace;
+            font-size: 14px;
+        }
+        
+        /* Important Note */
+        .important-note {
+            background: #E3F2FD;
+            border-left: 4px solid #2196F3;
+            padding: 20px;
+            margin: 20px 0;
+            border-radius: 5px;
+        }
+        
+        .important-note strong {
+            color: #1976D2;
+        }
+        
+        /* Warning Box */
+        .warning-box {
+            background: #FFEBEE;
+            border-left: 4px solid #F44336;
+            padding: 20px;
+            margin: 20px 0;
+            border-radius: 5px;
+        }
+        
+        .warning-box strong {
+            color: #C62828;
+        }
+        
+        /* Success Box */
+        .success-box {
+            background: #E8F5E9;
+            border-left: 4px solid #4CAF50;
+            padding: 20px;
+            margin: 20px 0;
+            border-radius: 5px;
+        }
+        
+        .success-box strong {
+            color: #2E7D32;
+        }
+        
+        /* Footer */
+        .footer {
+            background: #333;
+            color: white;
+            text-align: center;
+            padding: 30px 20px;
+            margin-top: 50px;
+        }
+        
+        .footer p {
+            margin-bottom: 10px;
+        }
+        
+        .footer a {
+            color: #FFA726;
+            text-decoration: none;
+        }
+        
+        /* Print Styles */
+        @media print {
+            body {
+                font-size: 12pt;
+            }
+            
+            .header {
+                background: #C8102E !important;
+                print-color-adjust: exact;
+                -webkit-print-color-adjust: exact;
+            }
+            
+            .step-card {
+                page-break-inside: avoid;
+                margin-bottom: 20px;
+            }
+            
+            .step-header {
+                background: #C8102E !important;
+                print-color-adjust: exact;
+                -webkit-print-color-adjust: exact;
+            }
+            
+            .image-container {
+                page-break-inside: avoid;
+            }
+            
+            .footer {
+                display: none;
+            }
+            
+            .code-block {
+                background: #f4f4f4 !important;
+                color: #333 !important;
+                border: 1px solid #ccc;
+            }
+        }
+        
+        /* Responsive Design */
+        @media (max-width: 768px) {
+            .header h1 {
+                font-size: 22px;
+            }
+            
+            .step-content {
+                padding: 20px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Header -->
+    <div class="header">
+        <div class="header-content">
+            <div class="logo-section">
+                <div class="uh-logo">UH</div>
+                <div>
+                    <h1>Neches Cluster Connection Guide</h1>
+                    <div class="subtitle">HPEDSI - High Performance Computing | University of Houston</div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Main Content -->
+    <div class="container">
+        <!-- Introduction -->
+        <div class="intro-card">
+            <h2>Welcome to the Neches Cluster Connection Guide</h2>
+            <p>
+                This comprehensive guide will walk you through the process of connecting to the Neches cluster 
+                from a Windows computer. The Neches cluster is a high-performance computing resource available 
+                to University of Houston researchers and students. This documentation is designed to be clear 
+                and accessible for beginners, with step-by-step instructions and visual aids.
+            </p>
+        </div>
+
+        <!-- Prerequisites -->
+        <div class="prerequisites">
+            <h3>📋 Prerequisites</h3>
+            <ul>
+                <li>Valid UH CougarNet credentials</li>
+                <li>Windows computer with internet connection</li>
+                <li>Administrative rights to install software (for VPN and MobaXterm)</li>
+                <li>Access granted to the Neches cluster</li>
+            </ul>
+        </div>
+
+        <!-- Step 1: VPN Connection -->
+        <div class="step-card">
+            <div class="step-header">
+                <div class="step-number">1</div>
+                <div class="step-title">Connect to UH Secure Network via VPN</div>
+            </div>
+            <div class="step-content">
+                <p>
+                    To access the Neches cluster, you must first be connected to the UH Secure network. 
+                    If you're on campus, you may already be connected. For off-campus access, you'll need 
+                    to use the Cisco VPN client.
+                </p>
+                
+                <div class="important-note">
+                    <strong>Important:</strong> Download and install the Cisco Secure Client from the official UH IT website:
+                    <br><a href="https://www.uh.edu/infotech/services/computing/networks/vpn/index.php" target="_blank">
+                    https://www.uh.edu/infotech/services/computing/networks/vpn/index.php</a>
+                </div>
+
+                <h4>VPN Configuration:</h4>
+                <p>When configuring the VPN, use one of the following host addresses:</p>
+                <ul>
+                    <li><span class="inline-code">VPN.uh.edu</span> - Primary VPN service for campus remote access (recommended)</li>
+                    <li><span class="inline-code">Full-VPN.uh.edu</span> - Backup service for special cases or when primary VPN has issues</li>
+                </ul>
+
+                <div class="image-container">
+                    <img src="0.png" alt="Cisco VPN Client Interface">
+                    <div class="image-caption">Cisco Secure Client VPN interface - Enter vpn.uh.edu and click Connect</div>
+                </div>
+
+                <p>Enter your CougarNet credentials when prompted and establish the VPN connection before proceeding.</p>
+            </div>
+        </div>
+
+        <!-- Step 2: Download MobaXterm -->
+        <div class="step-card">
+            <div class="step-header">
+                <div class="step-number">2</div>
+                <div class="step-title">Download MobaXterm</div>
+            </div>
+            <div class="step-content">
+                <p>
+                    MobaXterm is a powerful terminal application for Windows that provides SSH client capabilities 
+                    and many other useful features for remote computing.
+                </p>
+                
+                <p>Visit the official MobaXterm website to download the software:</p>
+                <div class="code-block">https://mobaxterm.mobatek.net/download.html</div>
+                
+                <div class="image-container">
+                    <img src="1.png" alt="MobaXterm Download Page">
+                    <div class="image-caption">MobaXterm download page - Choose Home Edition for free personal use</div>
+                </div>
+                
+                <p>
+                    The Home Edition is free and sufficient for connecting to the Neches cluster. 
+                    It includes all the necessary features for SSH connections and file transfers.
+                </p>
+            </div>
+        </div>
+
+        <!-- Step 3: Choose Version -->
+        <div class="step-card">
+            <div class="step-header">
+                <div class="step-number">3</div>
+                <div class="step-title">Select Installation Type</div>
+            </div>
+            <div class="step-content">
+                <p>
+                    MobaXterm offers two versions: Portable and Installer. 
+                    <strong>We recommend the Installer version</strong> for a more integrated Windows experience.
+                </p>
+                
+                <div class="image-container">
+                    <img src="2.png" alt="MobaXterm Version Selection">
+                    <div class="image-caption">Choose between Portable and Installer versions - Installer is recommended</div>
+                </div>
+                
+                <ul>
+                    <li><strong>Installer Version (Recommended):</strong> Installs MobaXterm on your system with proper shortcuts and file associations</li>
+                    <li><strong>Portable Version:</strong> Runs without installation, useful for USB drives or restricted systems</li>
+                </ul>
+                
+                <p>After downloading, unzip the file if necessary and locate the installer executable.</p>
+            </div>
+        </div>
+
+        <!-- Step 4: Installation -->
+        <div class="step-card">
+            <div class="step-header">
+                <div class="step-number">4</div>
+                <div class="step-title">Install MobaXterm</div>
+            </div>
+            <div class="step-content">
+                <p>
+                    Run the MobaXterm installer and follow the on-screen installation wizard. 
+                    The installation process is straightforward with default settings suitable for most users.
+                </p>
+                
+                <div class="image-container">
+                    <img src="3.png" alt="MobaXterm Installation Wizard">
+                    <div class="image-caption">MobaXterm Setup Wizard - Click Next to proceed with installation</div>
+                </div>
+                
+                <p>
+                    Accept the default installation directory and settings unless you have specific requirements. 
+                    The installation typically takes less than a minute to complete.
+                </p>
+            </div>
+        </div>
+
+        <!-- Step 5: Open MobaXterm -->
+        <div class="step-card">
+            <div class="step-header">
+                <div class="step-number">5</div>
+                <div class="step-title">Launch MobaXterm</div>
+            </div>
+            <div class="step-content">
+                <p>
+                    After installation, launch MobaXterm from your Start Menu or desktop shortcut. 
+                    You'll be greeted with the main interface showing various connection options.
+                </p>
+                
+                <div class="image-container">
+                    <img src="4.png" alt="MobaXterm Main Interface">
+                    <div class="image-caption">MobaXterm main interface - Click on "Session" to create a new connection</div>
+                </div>
+                
+                <p>
+                    The interface includes a file browser on the left, terminal area in the center, 
+                    and various tools accessible from the top menu bar.
+                </p>
+            </div>
+        </div>
+
+        <!-- Step 6: Create SSH Session -->
+        <div class="step-card">
+            <div class="step-header">
+                <div class="step-number">6</div>
+                <div class="step-title">Configure SSH Session</div>
+            </div>
+            <div class="step-content">
+                <p>Click on the "Session" button in the top-left corner to open the session configuration window.</p>
+                
+                <div class="image-container">
+                    <img src="5.png" alt="Session Configuration Window">
+                    <div class="image-caption">Session settings window - Select SSH for secure connection</div>
+                </div>
+                
+                <p>Follow these configuration steps:</p>
+                <ol>
+                    <li>Click on <strong>SSH</strong> from the session types</li>
+                    <li>In the <strong>Remote host</strong> field, enter: <span class="inline-code">neches.rcdc.uh.edu</span></li>
+                    <li>Check the <strong>"Specify username"</strong> checkbox</li>
+                    <li>Enter your CougarNet ID (the part before @cougarnet.uh.edu)</li>
+                </ol>
+                
+                <div class="warning-box">
+                    <strong>⚠️ Important:</strong> Enter only your CougarNet ID, NOT your full email address. 
+                    For example, if your email is jdoe1@cougarnet.uh.edu, enter only <span class="inline-code">jdoe1</span>
+                </div>
+                
+                <div class="image-container">
+                    <img src="6.png" alt="SSH Configuration Details">
+                    <div class="image-caption">SSH session configuration with correct settings</div>
+                </div>
+                
+                <p>After entering all details, click <strong>OK</strong> to initiate the connection.</p>
+            </div>
+        </div>
+
+        <!-- Step 7: Authentication -->
+        <div class="step-card">
+            <div class="step-header">
+                <div class="step-number">7</div>
+                <div class="step-title">Authenticate and Connect</div>
+            </div>
+            <div class="step-content">
+                <p>
+                    Upon first connection, you may see a security prompt asking to accept the host key. 
+                    Click <strong>Accept</strong> or <strong>Trust</strong> to continue.
+                </p>
+                
+                <div class="image-container">
+                    <img src="7.png" alt="Password Prompt">
+                    <div class="image-caption">Password authentication prompt - Enter your CougarNet password</div>
+                </div>
+                
+                <p>Enter your CougarNet password when prompted. Note the following:</p>
+                <ul>
+                    <li>Password characters will not be visible as you type (this is normal security behavior)</li>
+                    <li>Type carefully and press Enter when done</li>
+                    <li>If you mistype, press Backspace to delete characters</li>
+                </ul>
+                
+                <div class="important-note">
+                    <strong>Password Storage Option:</strong> After successful authentication, MobaXterm may offer 
+                    to save your password for faster future connections. Only accept this option on your personal, 
+                    secure computer. Never save passwords on shared or public computers.
+                </div>
+                
+                <div class="success-box">
+                    <strong>✅ Success!</strong> After entering the correct password, you'll be connected to the 
+                    Neches cluster and see the welcome banner with cluster information.
+                </div>
+                
+                <div class="image-container">
+                    <img src="8.png" alt="Successful Connection">
+                    <div class="image-caption">Successfully connected to Neches cluster - Welcome banner and command prompt</div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Additional Information -->
+        <div class="step-card">
+            <div class="step-header">
+                <div class="step-number">ℹ</div>
+                <div class="step-title">Additional Information</div>
+            </div>
+            <div class="step-content">
+                <h4>Common Commands:</h4>
+                <p>Once connected, you can use these common commands:</p>
+                <ul>
+                    <li><span class="inline-code">pwd</span> - Show current directory</li>
+                    <li><span class="inline-code">ls</span> - List files and directories</li>
+                    <li><span class="inline-code">cd</span> - Change directory</li>
+                    <li><span class="inline-code">module avail</span> - List available software modules</li>
+                    <li><span class="inline-code">module load [module_name]</span> - Load a software module</li>
+                    <li><span class="inline-code">squeue -u $USER</span> - Check your job queue</li>
+                </ul>
+
+                <h4>File Transfer:</h4>
+                <p>
+                    MobaXterm provides a built-in file browser on the left side of the interface. 
+                    You can drag and drop files between your local computer and the cluster.
+                </p>
+
+                <h4>Troubleshooting:</h4>
+                <ul>
+                    <li><strong>Connection timeout:</strong> Ensure VPN is connected and active</li>
+                    <li><strong>Authentication failed:</strong> Verify your CougarNet credentials</li>
+                    <li><strong>Permission denied:</strong> Contact IT support to verify cluster access</li>
+                </ul>
+
+                <h4>Getting Help:</h4>
+                <p>For additional assistance:</p>
+                <ul>
+                    <li>UH IT Support: <a href="https://uh.edu/infotech">https://uh.edu/infotech</a></li>
+                    <li>HPEDSI Documentation: Visit the official HPEDSI resources page</li>
+                    <li>Email support for cluster-specific issues</li>
+                </ul>
+            </div>
+        </div>
+    </div>
+
+    <!-- Footer -->
+    <div class="footer">
+        <p>© 2024 University of Houston - HPEDSI Program</p>
+        <p>Research Computing Data Core | Neches Cluster</p>
+        <p>For support, visit <a href="https://uh.edu/rcdc">uh.edu/rcdc</a></p>
+    </div>
+</body>
+</html>
